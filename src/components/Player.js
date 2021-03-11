@@ -25,9 +25,9 @@ render() {
       <div>
         <p>playlist found!</p>
 
-        <div id="player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}>
+        {/* <div id="player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
         <iframe title ="player" src="https://www.youtube.com/embed/qq09UkPRdFY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        {/* </div> */}
         </div>
       )
   } else {
