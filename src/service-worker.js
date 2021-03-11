@@ -69,4 +69,13 @@ self.addEventListener('message', (event) => {
   }
 });
 
+// Listen for requests
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request.url).then(() => {
+      return fetch(event.request.url).catch(() => caches.match("/offline.html"));
+    })
+  );
+});
+
 // Any other custom service worker logic can go here.
