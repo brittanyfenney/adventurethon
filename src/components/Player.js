@@ -39,17 +39,16 @@ function Video(props) {
     // event.target.playVideo();
   };
 
-  const _onStateChange = (event) => {
-    // event.target.pauseVideo()
-    console.log("on state change");
-  };
+  // const _onStateChange = (event) => {
+  //   // event.target.pauseVideo()
+  //   console.log("on state change");
+  // };
   return (
     <YouTube
-      videoId={"qq09UkPRdFY"}
-      opts={opts}
-      onReady={_onReady}
-      onStateChange={_onStateChange}
-    />
+    videoId={"qq09UkPRdFY"}
+    opts={opts}
+    onReady={_onReady}
+  />
   );
 }
 
