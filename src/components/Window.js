@@ -5,7 +5,7 @@ import "../index.css";
 
 export function Window() {
   return (
-    <div class-name="main-window">
+    <div className="main-window">
       <p>Hello. Are you new here?</p>
       <Link to="/signup"><button>Yes.</button></Link>
       <Link to="/player"><button>No.</button></Link>
@@ -15,7 +15,7 @@ export function Window() {
 
 export function SignUp() {
   return (
-    <div class-name="signup-window">
+    <div className="signup-window">
       <p>What's your name?</p>
       <input type="text"></input>
       <button>Submit</button>
