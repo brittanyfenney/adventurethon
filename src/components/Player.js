@@ -18,21 +18,17 @@ class Player extends React.Component {
     console.log('PROPS =>', this.props)
   }
 
-
-
 render() {
   const playlist = this.props.myPlaylist.items
   if (playlist && playlist.length) {
     return (
       <div>
-    <p>playlist found!</p>
-    <div>
-      {playlist.map(song => {
-        return (
-      <p key={song.id}> {song.id} </p>
-      )})}
-      </div>
-      </div>
+        <p>playlist found!</p>
+
+        <div id="player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}>
+        <iframe title ="player" src="https://www.youtube.com/embed/qq09UkPRdFY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        </div>
       )
   } else {
     return <h1>no playlist</h1>;

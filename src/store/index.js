@@ -4,8 +4,9 @@ import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import playlist from "./playlist";
 import user from "./user"
+import rooms from "./rooms"
 
-const reducer = combineReducers({ playlist, user });
+const reducer = combineReducers({ playlist, user, rooms });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );

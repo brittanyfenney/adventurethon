@@ -12,7 +12,7 @@ export function Entry() {
       <p>Welcome, {user.name}. You are in an empty room.</p>
       <p>You are carrying a backpack.</p>
       <p>There is a door in front of you. What would you like to do?</p>
-      <Link to="/room"><button>Go through the door.</button></Link>
+      <Link to="/room/1"><button>Go through the door.</button></Link>
       <Link to="/"><button>Leave</button></Link>
     </div>
   );

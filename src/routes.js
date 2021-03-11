@@ -2,7 +2,7 @@
 // import {connect} from 'react-redux'
 import React from 'react'
 import { Route, Switch} from 'react-router-dom'
-import { SignUp, Player, Window, Entry } from './components'
+import { SignUp, Player, Window, Entry, Room } from './components'
 // import {Login, Signup, UserHome} from './components'
 // import {me} from './store'
 
@@ -16,6 +16,7 @@ export default function Routes() {
         <Route path="/signup" component={SignUp} />
         <Route path="/player" component={Player} />
         <Route path="/entry" component={Entry} />
+        <Route path="/room/:id" component={Room}/>
         <Route path="/" component={Window} />
         </Switch>
 
