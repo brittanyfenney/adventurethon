@@ -1,93 +1,99 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { getPlaylist } from '../store'
-import YouTube from 'react-youtube';
-
+import React from "react";
+import { connect } from "react-redux";
+import { getPlaylist } from "../store";
+import YouTube from "react-youtube";
 
 class Player extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       playerReady: false,
-      play: false
-    }
-    this.onReady = this.onReady.bind(this)
-    this.clickHandler = this.clickHandler.bind(this)
+      play: false,
+    };
+    this.onReady = this.onReady.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   componentDidMount() {
-    console.log('YOUTUBE COMPONENT MOUNTED')
-    console.log('STATE =>', this.state)
-    console.log('PROPS =>', this.props)
-    this.props.getPlaylist()
-
-
+    console.log("YOUTUBE COMPONENT MOUNTED");
+    console.log("STATE =>", this.state);
+    console.log("PROPS =>", this.props);
+    this.props.getPlaylist();
   }
 
   componentDidUpdate() {
-    console.log('YOUTUBE COMPONENT UPDATED')
-    console.log('STATE =>', this.state)
-    console.log('PROPS =>', this.props)
+    console.log("YOUTUBE COMPONENT UPDATED");
+    console.log("STATE =>", this.state);
+    console.log("PROPS =>", this.props);
   }
 
   onReady(event, action) {
-console.log('in on ready')
+    console.log("in on ready");
     event.target.pauseVideo();
-    this.setState({playerReady: true})
+    this.setState({ playerReady: true });
     if (action === "play") {
-    event.target.playVideo();
+      event.target.playVideo();
     }
   }
 
   clickHandler() {
-    console.log('clicked!')
-    this.setState({play: true})
+    console.log("clicked!");
+    this.setState({ play: true });
   }
 
-render() {
-  const playlist = this.props.myPlaylist.items
-  const opts = {
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
+  render() {
+    console.log('YOUTUBE COMPONENT RENDERED')
+    const playlist = this.props.myPlaylist.items;
+    const opts = {
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+      },
+    };
+    if (playlist && playlist.length) {
+      return (
+        <div>
+          <p>playlist found!</p>
+          {/* {this.state.playerReady && <button type="button" onClick={this.clickHandler}>Play</button>} */}
+          <button type="button" onClick={this.clickHandler}>
+            Play
+          </button>
+          <button type="button">Pause</button>
+          <button type="button">Next</button>
 
-    },
-  };
-  if (playlist && playlist.length) {
-    return (
-      <div>
-        <p>playlist found!</p>
-        {/* {this.state.playerReady && <button type="button" onClick={this.clickHandler}>Play</button>} */}
-       <button type="button" onClick={this.clickHandler}>Play</button>
-        <button type="button">Pause</button>
-        <button type="button">Next</button>
+          {/* <div id="player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
+          {/* <iframe title ="player" src="https://www.youtube.com/embed/qq09UkPRdFY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
-        {/* <div id="player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
-        {/* <iframe title ="player" src="https://www.youtube.com/embed/qq09UkPRdFY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+          {this.state.play && (
+            <YouTube
+              videoId="qq09UkPRdFY"
+              opts={opts}
+              onReady={(e) => this.onReady(e, "play")}
+            />
+          )}
 
-        {this.state.play && <YouTube videoId="qq09UkPRdFY" opts={opts} onReady={(e) => this.onReady(e, "play")} />}
-
-        {/* </div> */}
+          {/* </div> */}
         </div>
-      )
-  } else {
-    return <h1>no playlist</h1>;
-  }
-}}
-
-
-// CONTAINER
-
-const mapState = state => {
-  return {
-    myPlaylist: state.playlist
+      );
+    } else {
+      return <h1>no playlist</h1>;
+    }
   }
 }
 
-const mapDispatch = dispatch => {
+// CONTAINER
+
+const mapState = (state) => {
+  return {
+    myPlaylist: state.playlist,
+  };
+};
+
+const mapDispatch = (dispatch) => {
   return {
     getPlaylist() {
-      dispatch(getPlaylist())
-  }
-}}
+      dispatch(getPlaylist());
+    },
+  };
+};
 
-export default connect(mapState, mapDispatch)(Player)
+export default connect(mapState, mapDispatch)(Player);
