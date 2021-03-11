@@ -62,13 +62,14 @@ export function Player() {
     setIsPaused(!isPaused);
   };
 
-  const toggleReady = () => {
-    setIsReady(true);
-  };
+  // const toggleReady = () => {
+  //   setIsReady(true);
+  // };
 
   return (
     <div className="Player">
-      {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>}
+      {/* {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>} */}
+      <Pause handleClick={togglePause} isPaused={isPaused} />
       <button type="button">Next</button>
       {/* <div id="hide-player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
       {/* <Video isPaused={isPaused} toggleReady={toggleReady}/> */}
