@@ -35,7 +35,7 @@ function Video(props) {
   const _onReady = (event) => {
     console.log("_onReady");
     cElement = event;
-    props.toggleReady()
+    // props.toggleReady()
     // event.target.playVideo();
   };
 
