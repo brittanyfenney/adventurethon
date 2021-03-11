@@ -13,12 +13,3 @@ export function Window() {
   );
 }
 
-export function SignUp() {
-  return (
-    <div className="signup-window">
-      <p>What's your name?</p>
-      <input type="text"></input>
-      <button>Submit</button>
-    </div>
-  );
-}
