@@ -29,7 +29,7 @@ export const getPlaylist = () => async dispatch => {
 const defaultPlaylist = []
 
 // REDUCER
-export default function (state = defaultPlaylist, action) {
+export default function playlist(state = defaultPlaylist, action) {
   switch (action.type) {
     case GOT_PLAYLIST:
       return action.playlist
