@@ -1,6 +1,6 @@
 import "98.css"
 import "./index.css"
-import Window from './Window'
+import { Window }  from './components'
 
 function App() {
   return (
