@@ -9,8 +9,12 @@ font-family: 'Press Start 2P', cursive;
   text-align: center;
 }
 
-h1 {
+p {
+font-size: medium;
+}
 
+button {
+  margin: 5px;
 }
 
 .App {
