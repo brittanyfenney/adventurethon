@@ -15,9 +15,14 @@ function Pause(props) {
 export function Player() {
   console.log('VIDEO FUNCTION')
   const [isPaused, setIsPaused] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   const togglePause = () => {
     setIsPaused(!isPaused);
+  };
+
+    const toggleReady = () => {
+    setIsReady(true);
   };
 
   const opts = {
@@ -40,7 +45,7 @@ export function Player() {
   const _onReady = (event) => {
     console.log("_onReady");
     cElement = event;
-    // props.toggleReady()
+    toggleReady()
     // event.target.playVideo();
   };
 
@@ -50,7 +55,8 @@ export function Player() {
   // };
   return (
     <div>
-    <Pause handleClick={togglePause} isPaused={isPaused} />
+      {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>}
+    {/* <Pause handleClick={togglePause} isPaused={isPaused} /> */}
       <button type="button">Next</button>
     <YouTube
     videoId={"qq09UkPRdFY"}
