@@ -12,9 +12,14 @@ function Pause(props) {
   );
 }
 
-function Video(props) {
+export function Player() {
   console.log('VIDEO FUNCTION')
-  console.log("PROPS =>", props);
+  const [isPaused, setIsPaused] = useState(true);
+
+  const togglePause = () => {
+    setIsPaused(!isPaused);
+  };
+
   const opts = {
     height: "390",
     width: "640",
@@ -26,11 +31,11 @@ function Video(props) {
 
   useEffect(() => {
     if (cElement) {
-      props.isPaused
+      isPaused
         ? cElement.target.pauseVideo()
         : cElement.target.playVideo();
     }
-  }, [props.isPaused]);
+  }, [isPaused]);
 
   const _onReady = (event) => {
     console.log("_onReady");
@@ -44,36 +49,40 @@ function Video(props) {
   //   console.log("on state change");
   // };
   return (
+    <div>
+    <Pause handleClick={togglePause} isPaused={isPaused} />
+      <button type="button">Next</button>
     <YouTube
     videoId={"qq09UkPRdFY"}
     opts={opts}
     onReady={_onReady}
   />
+  </div>
   );
 }
 
-export function Player() {
-  console.log('PLAYER FUNCTION')
-  const [isPaused, setIsPaused] = useState(true);
-  // const [isReady, setIsReady] = useState(false);
+// export function Player2() {
+//   console.log('PLAYER FUNCTION')
+//   const [isPaused, setIsPaused] = useState(true);
+//   // const [isReady, setIsReady] = useState(false);
 
-  const togglePause = () => {
-    setIsPaused(!isPaused);
-  };
+//   const togglePause = () => {
+//     setIsPaused(!isPaused);
+//   };
 
-  // const toggleReady = () => {
-  //   setIsReady(true);
-  // };
+//   // const toggleReady = () => {
+//   //   setIsReady(true);
+//   // };
 
-  return (
-    <div className="Player">
-      {/* {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>} */}
-      <Pause handleClick={togglePause} isPaused={isPaused} />
-      <button type="button">Next</button>
-      {/* <div id="hide-player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
-      {/* <Video isPaused={isPaused} toggleReady={toggleReady}/> */}
-      <Video isPaused={isPaused}/>
-      {/* </div> */}
-    </div>
-  );
-}
+//   return (
+//     <div className="Player">
+//       {/* {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>} */}
+//       <Pause handleClick={togglePause} isPaused={isPaused} />
+//       <button type="button">Next</button>
+//       {/* <div id="hide-player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
+//       {/* <Video isPaused={isPaused} toggleReady={toggleReady}/> */}
+//       <Video isPaused={isPaused}/>
+//       {/* </div> */}
+//     </div>
+//   );
+// }
