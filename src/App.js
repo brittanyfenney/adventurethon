@@ -1,6 +1,7 @@
 import "98.css"
 import "./index.css"
-import { Window }  from './components'
+// import { Window }  from './components'
+import Routes from './routes'
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <button>+</button>
           <button>-</button>
           <button>0</button> */}
-          <Window />
+          {/* <Window /> */}
+          <Routes />
         {/* </div> */}
       </div>
     </div>
