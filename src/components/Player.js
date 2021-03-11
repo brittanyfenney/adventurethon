@@ -13,7 +13,7 @@ function Pause(props) {
 }
 
 export function Player() {
-  console.log('VIDEO FUNCTION')
+  console.log("VIDEO FUNCTION");
   const [isPaused, setIsPaused] = useState(true);
   const [isReady, setIsReady] = useState(false);
 
@@ -21,49 +21,44 @@ export function Player() {
     setIsPaused(!isPaused);
   };
 
-    const toggleReady = () => {
+  const toggleReady = () => {
     setIsReady(true);
   };
 
   const opts = {
     height: "390",
     width: "640",
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      // autoplay: 1,
-    },
+    // playerVars: {
+    //   // https://developers.google.com/youtube/player_parameters
+    //   // autoplay: 1,
+    // },
   };
 
   useEffect(() => {
     if (cElement) {
-      isPaused
-        ? cElement.target.pauseVideo()
-        : cElement.target.playVideo();
+      isPaused ? cElement.target.pauseVideo() : cElement.target.playVideo();
     }
   }, [isPaused]);
 
   const _onReady = (event) => {
     console.log("_onReady");
     cElement = event;
-    toggleReady()
-    // event.target.playVideo();
+    toggleReady();
   };
 
-  // const _onStateChange = (event) => {
-  //   // event.target.pauseVideo()
-  //   console.log("on state change");
-  // };
   return (
     <div>
-      {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>}
-    {/* <Pause handleClick={togglePause} isPaused={isPaused} /> */}
+      {isReady ? (
+        <Pause handleClick={togglePause} isPaused={isPaused} />
+      ) : (
+        <button type="button" disabled>
+          Play
+        </button>
+      )}
+      {/* <Pause handleClick={togglePause} isPaused={isPaused} /> */}
       <button type="button">Next</button>
-    <YouTube
-    videoId={"qq09UkPRdFY"}
-    opts={opts}
-    onReady={_onReady}
-  />
-  </div>
+      <YouTube videoId={"qq09UkPRdFY"} opts={opts} onReady={_onReady} />
+    </div>
   );
 }
 
