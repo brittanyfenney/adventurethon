@@ -68,9 +68,9 @@ export function Player() {
     <div className="Player">
       {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>}
       <button type="button">Next</button>
-      <div id="hide-player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}>
+      {/* <div id="hide-player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
       <Video isPaused={isPaused} toggleReady={toggleReady}/>
-      </div>
+      {/* </div> */}
     </div>
   );
 }
