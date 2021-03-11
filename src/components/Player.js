@@ -56,7 +56,7 @@ function Video(props) {
 export function Player() {
   console.log('PLAYER FUNCTION')
   const [isPaused, setIsPaused] = useState(true);
-  const [isReady, setIsReady] = useState(false);
+  // const [isReady, setIsReady] = useState(false);
 
   const togglePause = () => {
     setIsPaused(!isPaused);
