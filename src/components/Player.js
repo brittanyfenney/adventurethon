@@ -13,7 +13,8 @@ function Pause(props) {
 }
 
 function Video(props) {
-  console.log("VIDEO PROPS =>", props);
+  console.log('VIDEO FUNCTION')
+  console.log("PROPS =>", props);
   const opts = {
     height: "390",
     width: "640",
@@ -53,6 +54,7 @@ function Video(props) {
 }
 
 export function Player() {
+  console.log('PLAYER FUNCTION')
   const [isPaused, setIsPaused] = useState(true);
   const [isReady, setIsReady] = useState(false);
 
@@ -69,7 +71,8 @@ export function Player() {
       {isReady ? <Pause handleClick={togglePause} isPaused={isPaused} /> : <button type="button" disabled>Play</button>}
       <button type="button">Next</button>
       {/* <div id="hide-player" style={{position: "absolute", top: "-9999px", left: "-9999px"}}> */}
-      <Video isPaused={isPaused} toggleReady={toggleReady}/>
+      {/* <Video isPaused={isPaused} toggleReady={toggleReady}/> */}
+      <Video isPaused={isPaused}/>
       {/* </div> */}
     </div>
   );
