@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { getPlaylist } from '../store'
 
-class Youtube extends React.Component {
+class Player extends React.Component {
 
   componentDidMount() {
     console.log('YOUTUBE COMPONENT MOUNTED')
@@ -55,4 +55,4 @@ const mapDispatch = dispatch => {
   }
 }}
 
-export default connect(mapState, mapDispatch)(Youtube)
+export default connect(mapState, mapDispatch)(Player)

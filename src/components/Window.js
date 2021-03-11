@@ -8,7 +8,7 @@ export function Window() {
     <div class-name="main-window">
       <p>Hello. Are you new here?</p>
       <Link to="/signup"><button>Yes.</button></Link>
-      <Link to="/youtube"><button>No.</button></Link>
+      <Link to="/player"><button>No.</button></Link>
     </div>
   );
 }
