@@ -19,8 +19,8 @@ class Player extends React.PureComponent {
 
     // On mount, check to see if the API script is already loaded
     if (!window.YT) { // If not, load the script asynchronously
-      let proxyUrl = "https://desolate-beyond-21995.herokuapp.com/"
-      let scriptUrl = "https://www.youtube.com/iframe_api"
+      // let proxyUrl = "https://desolate-beyond-21995.herokuapp.com/"
+      // let scriptUrl = "https://www.youtube.com/iframe_api"
       const tag = document.createElement('script');
       // tag.src = './script.js'
       tag.src = "https://desolate-beyond-21995.herokuapp.com/https://www.youtube.com/iframe_api"
