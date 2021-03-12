@@ -1,17 +1,23 @@
-html, body, div.root { width:100vw; height:100vh; margin:0; padding:0 }
+html,
+body,
+div.root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
 * {
   box-sizing: border-box;
 }
 
 #entry-window {
-font-family: 'Press Start 2P', cursive;
-/* font-family: 'VT323', monospace; */
+  font-family: "Press Start 2P", cursive;
+  /* font-family: 'VT323', monospace; */
   text-align: center;
   background-color: black;
-  margin:1px;
-  height: 100%
-
+  margin: 1px;
+  height: 100%;
 }
 
 #entry-window p {
@@ -19,7 +25,7 @@ font-family: 'Press Start 2P', cursive;
 }
 
 p {
-font-size: medium;
+  font-size: medium;
 }
 
 button {
@@ -27,9 +33,6 @@ button {
 }
 
 .App {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
   width: 100vw;
   height: 100vh;
   background-color: #008080;
@@ -42,7 +45,6 @@ button {
   top: 10px;
   margin-left: 5%;
   margin-right: 5%;
-
 }
 /*
 code {
@@ -50,12 +52,11 @@ code {
     monospace;
 } */
 
-input {
+.signup-window input {
   font-size: 16px;
   line-height: 32px;
   vertical-align: bottom;
   margin: 1px;
-
 }
 
 .signup-window button {
@@ -63,7 +64,6 @@ input {
   margin-bottom: 0;
   padding-bottom: 0;
   vertical-align: bottom;
-
 }
 
 #player-container {
@@ -82,9 +82,7 @@ input {
   --button-shadow: #808080;
   outline: 1px dotted #000000;
   outline-offset: -4px;
-
 }
-
 
 #backpack-container {
   width: 90%;
@@ -98,13 +96,12 @@ input {
 }
 
 #backpack-tree {
-height: 80px;
+  height: 80px;
   overflow-y: auto;
 }
 
-
 .hide {
-  display: none
+  display: none;
 }
 
 #room-window {
@@ -112,37 +109,22 @@ height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: 'Press Start 2P', cursive;
-/* font-family: 'VT323', monospace; */
+  font-family: "Press Start 2P", cursive;
   text-align: center;
   background-color: black;
-  margin:1px;
-
+  margin: 1px;
 }
 
 #room-window p {
   font-size: 12px;
 }
 
-#room-window button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
-#room-window button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
 
 #routes-container {
-  height: 305px;
-
+  height: 295px;
   width: 100%;
   margin: 0px;
-  padding: 0px
+  padding: 0px;
 }
 
 #new-item-alert {
