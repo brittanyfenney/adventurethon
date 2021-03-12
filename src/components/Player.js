@@ -19,7 +19,7 @@ class Player extends React.PureComponent {
     // On mount, check to see if the API script is already loaded
     if (!window.YT) { // If not, load the script asynchronously
       const tag = document.createElement('script');
-      tag.src = '//www.youtube.com/iframe_api';
+      tag.src = 'https://www.youtube.com/iframe_api';
 
       // onYouTubeIframeAPIReady will load the video after the script is loaded
       window.onYouTubeIframeAPIReady = this.loadVideo;
