@@ -19,8 +19,11 @@ class Player extends React.PureComponent {
 
     // On mount, check to see if the API script is already loaded
     if (!window.YT) { // If not, load the script asynchronously
+      let proxyUrl = "https://desolate-beyond-21995.herokuapp.com/"
+      let scriptUrl = "https://www.youtube.com/iframe_api"
       const tag = document.createElement('script');
-      tag.src = './script.js'
+      // tag.src = './script.js'
+      tag.src = "https://desolate-beyond-21995.herokuapp.com/https://www.youtube.com/iframe_api"
 
       // onYouTubeIframeAPIReady will load the video after the script is loaded
       window.onYouTubeIframeAPIReady = this.loadVideo;
@@ -56,7 +59,6 @@ class Player extends React.PureComponent {
   onPlayerReady = event => {
     this.setState({isReady: true})
     cElement = event
-    // event.target.playVideo();
   };
 
   togglePause(event) {
@@ -72,6 +74,10 @@ class Player extends React.PureComponent {
       this.setState({isPaused: true})
       cElement.target.pauseVideo()
     }
+  }
+
+  toggleNext(next) {
+    this.setState({id: next})
   }
 
   render = () => {
