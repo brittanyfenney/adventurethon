@@ -87,7 +87,7 @@ class Player extends React.PureComponent {
       <div>
 
         <div>
-          <p>Hola</p>
+          <p>Howdy</p>
           {this.state.isReady
           ? <button type="button" onClick={this.togglePause}>{this.state.isPaused
               ? "Play"
@@ -97,8 +97,9 @@ class Player extends React.PureComponent {
 
           <button>Next</button>
         </div>
-
+        <div style={{position: "absolute", top: "-9999px", left: "-9999px"}}>
         <div id={`youtube-player-${id}`} />
+        </div>
       </div>
     );
   };
