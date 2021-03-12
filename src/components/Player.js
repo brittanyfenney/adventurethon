@@ -22,8 +22,8 @@ class Player extends React.PureComponent {
       // let proxyUrl = "https://desolate-beyond-21995.herokuapp.com/"
       // let scriptUrl = "https://www.youtube.com/iframe_api"
       const tag = document.createElement('script');
-      // tag.src = './script.js'
-      tag.src = "https://desolate-beyond-21995.herokuapp.com/https://www.youtube.com/iframe_api"
+      tag.src = './script.js'
+      // tag.src = "https://desolate-beyond-21995.herokuapp.com/https://www.youtube.com/iframe_api"
 
       // onYouTubeIframeAPIReady will load the video after the script is loaded
       window.onYouTubeIframeAPIReady = this.loadVideo;
