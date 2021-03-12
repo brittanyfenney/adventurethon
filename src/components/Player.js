@@ -79,6 +79,7 @@ class Player extends React.PureComponent {
       <div>
 
         <div>
+          <p>Howdy</p>
           {this.state.isReady
           ? <button type="button" onClick={this.togglePause}>{this.state.isPaused
               ? "Play"
