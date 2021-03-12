@@ -1,44 +1,39 @@
-import React from 'react';
+import React from "react";
+import "98.css";
+import { Controls } from './index'
 
-let cElement
-
-class Player extends React.PureComponent {
+export default class Player extends React.PureComponent {
   constructor() {
-    super()
+    super();
     this.state = {
       id: "qq09UkPRdFY",
       isReady: false,
       isPaused: true,
-    }
-    this.togglePause = this.togglePause.bind(this)
-    this.onPlayerReady = this.onPlayerReady.bind(this)
+      cElement: null,
+    };
+    this.togglePause = this.togglePause.bind(this);
+    this.onPlayerReady = this.onPlayerReady.bind(this);
   }
 
-
   componentDidMount = () => {
-
     // On mount, check to see if the API script is already loaded
-    if (!window.YT) { // If not, load the script asynchronously
-      // let proxyUrl = "https://desolate-beyond-21995.herokuapp.com/"
-      // let scriptUrl = "https://www.youtube.com/iframe_api"
-      const tag = document.createElement('script');
-      tag.src = './script.js'
-      // tag.src = "https://desolate-beyond-21995.herokuapp.com/https://www.youtube.com/iframe_api"
+    if (!window.YT) {
+      // If not, load the script asynchronously
+      const tag = document.createElement("script");
+      tag.src = "./script.js";
 
       // onYouTubeIframeAPIReady will load the video after the script is loaded
       window.onYouTubeIframeAPIReady = this.loadVideo;
 
-      const firstScriptTag = document.getElementsByTagName('script')[0];
+      const firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      // var url = window.location.pathname;
-
-    } else { // If script is already there, load the video directly
+    } else {
+      // If script is already there, load the video directly
       this.loadVideo();
     }
   };
 
-  componentDidUpdate
-
+  componentDidUpdate;
 
   loadVideo = () => {
     const { id } = this.state;
@@ -56,53 +51,63 @@ class Player extends React.PureComponent {
     });
   };
 
-  onPlayerReady = event => {
-    this.setState({isReady: true})
-    cElement = event
+  onPlayerReady = (event) => {
+    this.setState({ isReady: true });
+    this.setState({ cElement: event });
   };
 
   togglePause(event) {
-    let action = event.target.innerText
+    let action = event.target.innerText;
 
-    if (action === "Play"){
-      console.log("Play")
-      this.setState({isPaused: false})
-      cElement.target.playVideo();
-
-    } else if (action === "Pause"){
-      console.log("Pause")
-      this.setState({isPaused: true})
-      cElement.target.pauseVideo()
+    if (action === "Play") {
+      this.setState({ isPaused: false });
+      this.state.cElement.target.playVideo();
+    } else if (action === "Pause") {
+      this.setState({ isPaused: true });
+      this.state.cElement.target.pauseVideo();
     }
   }
 
   toggleNext(next) {
-    this.setState({id: next})
+    this.setState({ id: next });
   }
 
   render = () => {
     const { id } = this.state;
+    console.log("PLAYER RENDER, USER HAS PLAYER?", this.props.hasPlayer);
 
     return (
       <div>
+        {/* <div className={true ? "window" : "hide"}>
+          <div className="title-bar">
+            <div className="title-bar-text">Discman</div>
+            <div className="title-bar-controls">
+              <button aria-label="Minimize" />
+              <button aria-label="Maximize" />
+              <button aria-label="Close" />
+            </div>
+          </div>
 
-        <div>
-          <p>Howdy</p>
-          {this.state.isReady
-          ? <button type="button" onClick={this.togglePause}>{this.state.isPaused
-              ? "Play"
-              : "Pause"
-              }</button>
-          : <button disabled>Play</button>}
+          <div className="window-body">
+            <p>Howdy</p>
+            {this.state.isReady ? (
+              <button type="button" onClick={this.togglePause}>
+                {this.state.isPaused ? "Play" : "Pause"}
+              </button>
+            ) : (
+              <button disabled>Play</button>
+            )}
+            <button>Next</button>
+            </div>
 
-          <button>Next</button>
-        </div>
-        <div style={{position: "absolute", top: "-9999px", left: "-9999px"}}>
-        <div id={`youtube-player-${id}`} />
+         </div> */}
+         <Controls isReady={this.state.isReady} isPaused={this.state.isPaused} togglePause={this.togglePause}/>
+
+        <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
+          <div id={`youtube-player-${id}`} />
         </div>
       </div>
     );
   };
 }
 
-export default Player;

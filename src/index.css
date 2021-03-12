@@ -23,11 +23,15 @@ button {
   justify-content: center;
   width: 100%;
   height: 100vh;
+  background-color: #008080;
 }
 
-.window {
+#main-window {
   width: 100%;
-  height: 100vh;
+  height: 75%;
+  position: absolute;
+  top: 10px;
+  left: 0;
 }
 
 code {
@@ -49,6 +53,18 @@ input {
   padding-bottom: 0;
   vertical-align: bottom;
 
+}
+
+#player-container {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+}
+
+.hide {
+  display: none
 }
 
 

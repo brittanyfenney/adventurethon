@@ -1,4 +1,3 @@
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
@@ -10,13 +9,13 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
     <Router history={history}>
     <App />
     </Router>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
