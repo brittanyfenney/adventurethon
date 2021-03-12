@@ -45,6 +45,7 @@ class Player extends React.PureComponent {
       videoId: id,
       playerVars: {
         autoplay: 1,
+        playsinline: 1,
       },
       events: {
         onReady: this.onPlayerReady,
@@ -80,7 +81,7 @@ class Player extends React.PureComponent {
       <div>
 
         <div>
-          <p>Howdy</p>
+          <p>Hola</p>
           {this.state.isReady
           ? <button type="button" onClick={this.togglePause}>{this.state.isPaused
               ? "Play"
