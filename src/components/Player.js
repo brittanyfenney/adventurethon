@@ -11,6 +11,7 @@ class Player extends React.PureComponent {
       isPaused: true,
     }
     this.togglePause = this.togglePause.bind(this)
+    this.onPlayerReady = this.onPlayerReady.bind(this)
   }
 
 
@@ -72,6 +73,7 @@ class Player extends React.PureComponent {
 
   render = () => {
     const { id } = this.state;
+
     return (
       <div>
 
