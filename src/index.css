@@ -4,9 +4,18 @@ html, body, div.root { width:100vw; height:100vh; margin:0; padding:0 }
   box-sizing: border-box;
 }
 
-body {
+#entry-window {
 font-family: 'Press Start 2P', cursive;
+/* font-family: 'VT323', monospace; */
   text-align: center;
+  background-color: black;
+  margin:1px;
+  height: 100%
+
+}
+
+#entry-window p {
+  font-size: 10px;
 }
 
 p {
@@ -28,17 +37,18 @@ button {
 
 #main-window {
   width: 90%;
-  height: 50%;
+  height: 335px;
   position: absolute;
   top: 10px;
   margin-left: 5%;
   margin-right: 5%;
-}
 
+}
+/*
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
 input {
   font-size: 16px;
@@ -66,6 +76,16 @@ input {
   margin-right: 5%;
 }
 
+#player-container button:focus {
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+
+}
+
+
 #backpack-container {
   width: 90%;
   height: 20%;
@@ -87,13 +107,49 @@ height: 80px;
   display: none
 }
 
-.room-window {
+#room-window {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family: 'Press Start 2P', cursive;
+/* font-family: 'VT323', monospace; */
+  text-align: center;
+  background-color: black;
+  margin:1px;
+
 }
 
+#room-window p {
+  font-size: 12px;
+}
+
+#room-window button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+#room-window button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+
 #routes-container {
-  height: 85%;
+  height: 305px;
+
+  width: 100%;
+  margin: 0px;
+  padding: 0px
+}
+
+#new-item-alert {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  background-color: white;
+  color: black;
 }
