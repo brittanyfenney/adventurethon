@@ -1,18 +1,19 @@
 // ITEM CONSTRUCTOR
 
 class Item {
-  constructor(id, name, desc) {
+  constructor(id, name, desc, singles) {
     this.id = id;
     this.name = name;
     this.desc = desc
+    this.singles = singles
   }
 }
 
 // ITEMS
 
-let discman = new Item(1,"Discman", "A portable CD player. Cool!")
+let discman = new Item(1,"Discman", "A portable CD player. Cool!", {})
 
-// ALL ITEMS ARRAY
+// ALL ITEMS
 
 const allItems = {
   1: discman
@@ -44,7 +45,7 @@ let kitchen = new Room(1, "Kitchen", {west: 2})
 let livingRoom = new Room(2, "Living Room", {east: 1}, discman)
 
 
-// ALL ROOMS ARRAY
+// ALL ROOMS
 
 const allRooms = {
   1: kitchen,

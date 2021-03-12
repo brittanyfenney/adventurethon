@@ -34,6 +34,7 @@ export function Room(props) {
   if (room.name) {
     return (
       <div className="room-window">
+        <div>
         <p>You are in the {room.name}.</p>
         {foundNewItem && <p>You found a {room.item.name}.</p>}
         <p>What would you like to do?</p>
@@ -60,6 +61,10 @@ export function Room(props) {
             </Link>
           )}
         </div>
+        </div>
+        {/* <div className="toggle-bp">
+          <button>Open Backpack</button>
+        </div> */}
       </div>
     );
   } else {
