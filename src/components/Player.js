@@ -16,16 +16,10 @@ class Player extends React.PureComponent {
 
 
   componentDidMount = () => {
-  //   const handler = () =>
-  //  fetch("/.netlify/functions/node-fetch")
-  //   .then((x) => console.log(x))
-  //   const response = handler()
-  //   console.log(response)
 
     // On mount, check to see if the API script is already loaded
     if (!window.YT) { // If not, load the script asynchronously
       const tag = document.createElement('script');
-      // tag.src = 'https://www.youtube.com/iframe_api';
       tag.src = './script.js'
 
       // onYouTubeIframeAPIReady will load the video after the script is loaded
