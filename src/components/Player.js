@@ -117,6 +117,7 @@ class Player extends React.PureComponent {
 
     this.setState({ currentSong: next });
     this.setState({ id: newId })
+    this.setState({isPaused: true})
     this.player.cueVideoById(newId)
   }
 
