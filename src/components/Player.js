@@ -68,10 +68,6 @@ class Player extends React.PureComponent {
   };
 
   loadVideo = (id) => {
-    console.log('LOADING VIDEO')
-    // const { id } = this.state;
-
-    // the Player object is created uniquely based on the id in props
     this.player = new window.YT.Player(`youtube-player-${id}`, {
       videoId: id,
       playerVars: {
@@ -85,8 +81,9 @@ class Player extends React.PureComponent {
   };
 
   onPlayerReady = (event) => {
+    console.log('player ready')
     event.target.pauseVideo();
-    this.setState({ isReady: true });
+    setTimeout(() => {this.setState({ isReady: true })},1000)
     this.setState({ cElement: event });
     console.log('PLAYER READY, SONG ID =>', this.state.id)
   };
@@ -104,7 +101,8 @@ class Player extends React.PureComponent {
   }
 
   toggleSong(dir) {
-    console.log('toggling new song')
+    this.setState({isReady: false})
+
     let current = this.state.currentSong
     let next
     if (dir === 'next') {
@@ -115,10 +113,12 @@ class Player extends React.PureComponent {
     let singles = this.state.singles
     let newId = singles[next].name.id
 
+    this.player.cueVideoById(newId)
     this.setState({ currentSong: next });
     this.setState({ id: newId })
     this.setState({isPaused: true})
-    this.player.cueVideoById(newId)
+    setTimeout(() => {this.setState({ isReady: true })},1000)
+
   }
 
   render = () => {

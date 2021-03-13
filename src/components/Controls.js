@@ -20,9 +20,11 @@ export function Controls(props) {
       <div className="window-body">
         <p>
           {props.id
-            ? `Current song is ${singles[currentSong].name.name} by ${singles[currentSong].name.artist}`
+            ? `${singles[currentSong].name.name} by ${singles[currentSong].name.artist} `
             : `Howdy! You don't have any songs right now.`}
+            {(props.id && !props.isReady) && ".....Loading....."}
         </p>
+
 
         {currentSong > 0 ? (
           <button type="button" onClick={() => props.toggleSong("prev")}>
