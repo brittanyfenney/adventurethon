@@ -33,7 +33,7 @@ class SignUp extends React.Component {
     <div className="signup-window">
       <p>What's your name?</p>
       <form onSubmit={this.handleSubmit} name="signup">
-      <input name="name" type="text"></input>
+      <input name="name" type="text" id="sign-up"></input>
       <button type="submit">Submit</button>
       </form>
     </div>
