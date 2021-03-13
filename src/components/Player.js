@@ -117,7 +117,7 @@ class Player extends React.PureComponent {
     this.setState({ currentSong: next });
     this.setState({ id: newId })
     this.setState({isPaused: true})
-    setTimeout(() => {this.setState({ isReady: true })},1000)
+    setTimeout(() => {this.setState({ isReady: true })},3000)
 
   }
 
