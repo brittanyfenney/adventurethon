@@ -79,9 +79,9 @@ class Player extends React.PureComponent {
   };
 
   onPlayerReady = (event) => {
-    event.target.playVideo()
-    // event.target.pauseVideo();
-    setTimeout(() => {event.target.pauseVideo()}, 1000)
+    // event.target.playVideo()
+    event.target.pauseVideo();
+    // setTimeout(() => {event.target.pauseVideo()}, 1000)
     this.setState({ cElement: event });
     setTimeout(() => {this.setState({ isReady: true })},1000)
     this.setState({ cElement: event });
@@ -116,7 +116,7 @@ class Player extends React.PureComponent {
     this.setState({ playlistIdx: next });
     this.setState({ songId: newId })
     this.setState({isPaused: true})
-    setTimeout(() => {this.setState({ isReady: true })},3000)
+    setTimeout(() => {this.setState({ isReady: true })},1500)
 
   }
 
