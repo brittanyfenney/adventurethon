@@ -113,7 +113,7 @@ class Player extends React.PureComponent {
     this.setState({ playlistIdx: next });
     this.setState({ songId: newId })
     this.setState({isPaused: true})
-    setTimeout(() => {this.setState({ isReady: true })},3000)
+    setTimeout(() => {this.setState({ isReady: true })},1500)
 
   }
 
@@ -134,8 +134,8 @@ class Player extends React.PureComponent {
         />
         </div>
         <div>
-          {/* <div id={`youtube-player-${songId}`} className="hide" /> */}
-          <div id={`youtube-player-${songId}`} />
+          <div id={`youtube-player-${songId}`} className="hide" />
+          {/* <div id={`youtube-player-${songId}`} /> */}
         </div>
 
         {/* <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
