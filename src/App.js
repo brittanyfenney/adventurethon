@@ -33,7 +33,7 @@ function App() {
         <Player />
       </div>
 
-      <div id="bottom-border"></div>
+
     </div>
   );
 }

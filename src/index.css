@@ -33,13 +33,18 @@ p {
   width: 100vw;
   height: 100vh;
   background-color: #008080;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
 }
 
 #app-window {
+  background-color: red;
   width: 90%;
   height: 335px;
-  position: absolute;
-  top: 10px;
+  /* position: absolute;
+  top: 10px; */
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -88,11 +93,12 @@ code {
 }
 
 #player-container {
+  background-color:yellow;
   width: 90%;
   height: 20%;
-  position: absolute;
+  /* position: absolute;
   bottom: 15px;
-  left: 0;
+  left: 0; */
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -106,18 +112,23 @@ code {
 }
 
 #backpack-container {
+  background-color: green;
   width: 90%;
   height: 20%;
-  position: absolute;
+  /* position: absolute;
   bottom: 170px;
-  left: 0;
+  left: 0; */
   margin-left: 5%;
   margin-right: 5%;
   text-align: left;
 }
 
+#backpack-window {
+  height: 100%;
+}
+
 #backpack-tree {
-  height: 80px;
+  height: 70%;
   overflow-y: auto;
 }
 

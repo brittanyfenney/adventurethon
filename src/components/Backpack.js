@@ -6,7 +6,7 @@ export function Backpack() {
   const backpack = useSelector(state => state.inventory.backpack)
   console.log(backpack)
   return (
-    <div className={backpack ? "window" : "hide"}>
+    <div className={backpack ? "window" : "hide"} id="backpack-window">
       <div className="title-bar">
         <div className="title-bar-text">Backpack</div>
         <div className="title-bar-controls">
