@@ -3,9 +3,20 @@ import { useSelector } from "react-redux";
 import "98.css";
 
 export function Backpack() {
-  const backpack = useSelector(state => state.inventory.backpack)
+  const inventory = useSelector((state) => state.inventory);
+  const player = useSelector((state) => state.player);
+  const playlist = useSelector((state) => state.playlist);
+
+  const tools = [];
+  for (const item in inventory) {
+    if (item.type === "tool") tools.push(item);
+  }
+
   return (
-    <div className={backpack ? "window" : "hide"} id="backpack-window">
+    <div
+      className={inventory.backpack ? "window" : "hide"}
+      id="backpack-window"
+    >
       <div className="title-bar">
         <div className="title-bar-text">Backpack</div>
         <div className="title-bar-controls">
@@ -16,18 +27,29 @@ export function Backpack() {
       </div>
 
       <div className="window-body" id="backpack-tree">
-        <ul className="tree-view" >
-          <li>
-            Backpack
+        <ul className="tree-view">
+          {player && <li>Discman</li>}
+          {Boolean(tools.length) && <li>
+            Tools
+          <ul>
+          {tools.map((tool) => {
+            return <li key={tool.id}>{tool.name}</li>;
+          })}
+          </ul>
+          </li>}
+
+          {Boolean(playlist.length) &&<li>
+            CDs
             <ul>
-              <li>Selectors</li>
-              <li>Specificity</li>
-              <li>Properties</li>
-              <li>Selectors</li>
-              <li>Specificity</li>
-              <li>Properties</li>
+              {playlist.map((song) => {
+                return (
+                  <li key={song.name.id}>
+                    {song.name.name} by {song.name.artist}
+                  </li>
+                );
+              })}
             </ul>
-          </li>
+          </li>}
         </ul>
       </div>
     </div>

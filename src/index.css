@@ -164,3 +164,12 @@ code {
   background-color: white;
   color: black;
 }
+
+.tree-view summary {
+  display: inside;
+  cursor: none;
+}
+
+.tree-view {
+  height: 100%
+}
