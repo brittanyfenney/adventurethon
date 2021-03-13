@@ -79,6 +79,7 @@ class Player extends React.PureComponent {
   };
 
   onPlayerReady = (event) => {
+    event.target.playVideo()
     event.target.pauseVideo();
     setTimeout(() => {this.setState({ isReady: true })},1000)
     this.setState({ cElement: event });
