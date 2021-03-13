@@ -40,7 +40,6 @@ p {
 }
 
 #app-window {
-  background-color: red;
   width: 90%;
   height: 335px;
   /* position: absolute;
@@ -93,7 +92,6 @@ code {
 }
 
 #player-container {
-  background-color:yellow;
   width: 90%;
   height: 20%;
   /* position: absolute;
@@ -112,7 +110,6 @@ code {
 }
 
 #backpack-container {
-  background-color: green;
   width: 90%;
   height: 20%;
   /* position: absolute;
