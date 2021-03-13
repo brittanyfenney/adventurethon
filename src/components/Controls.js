@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 
 export function Controls(props) {
   const hasPlayer = useSelector((state) => state.player);
-  const singles = props.singles;
-  const currentSong = props.currentSong;
+  const playlist = props.playlist;
+  const playlistIdx = props.playlistIdx;
 
   return (
     <div className={hasPlayer ? "window" : "hide"}>
@@ -19,14 +19,14 @@ export function Controls(props) {
 
       <div className="window-body">
         <p>
-          {props.id
-            ? `${singles[currentSong].name.name} by ${singles[currentSong].name.artist} `
+          {props.songId
+            ? `${playlist[playlistIdx].name.name} by ${playlist[playlistIdx].name.artist} `
             : `Howdy! You don't have any songs right now.`}
-            {(props.id && !props.isReady) && ".....Loading....."}
+            {(props.songId && !props.isReady) && ".....Loading....."}
         </p>
 
 
-        {currentSong > 0 ? (
+        {playlistIdx > 0 ? (
           <button type="button" onClick={() => props.toggleSong("prev")}>
             Prev
           </button>
@@ -45,7 +45,7 @@ export function Controls(props) {
         )}
 
 
-        {currentSong < (singles.length -1) ? (
+        {playlistIdx < (playlist.length -1) ? (
         <button type="button" onClick={() => props.toggleSong("next")}>
           Next
         </button>

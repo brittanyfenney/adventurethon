@@ -7,12 +7,12 @@ class Player extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      id: null,
+      songId: null,
       isReady: false,
       isPaused: true,
       cElement: null,
       singles: [],
-      currentSong: null
+      playlistIdx: null
     };
     this.togglePause = this.togglePause.bind(this);
     this.onPlayerReady = this.onPlayerReady.bind(this);
@@ -20,7 +20,6 @@ class Player extends React.PureComponent {
   }
 
   componentDidMount = () => {
-    console.log("PLAYER MOUNTED, PROPS =>", this.props);
     // On mount, check to see if the API script is already loaded
     if (!window.YT) {
       // If not, load the script asynchronously
@@ -39,37 +38,36 @@ class Player extends React.PureComponent {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    console.log("COMPONENT UPDATED")
-    let { id, singles } = this.state
-    let inventory = this.props.inventory
+    let { songId } = this.state
+    let playlist = this.props.playlist
+    // let inventory = this.props.inventory
 
-    if (inventory !== prevProps.inventory) {
-      let singlesArray = [];
-      for (const [key, value] of Object.entries(inventory)) {
-        if (value.type === "single") singlesArray.push(inventory[key]);
-      }
-      if (singlesArray.length > singles.length) {
-        this.setState({ singles: singlesArray });
-      }
+    // if (inventory !== prevProps.inventory) {
+    //   let singlesArray = [];
+    //   for (const [key, value] of Object.entries(inventory)) {
+    //     if (value.type === "single") singlesArray.push(inventory[key]);
+    //   }
+    //   if (singlesArray.length > singles.length) {
+    //     this.setState({ singles: singlesArray });
+    //   }
+    // }
+
+    if(!songId && playlist.length) {
+      this.setState({songId: playlist[0].name.id})
+      this.setState({playlistIdx: 0})
     }
 
-    if(!id && singles.length) {
-      this.setState({id: singles[0].name.id})
-      this.setState({currentSong: 0})
-    }
-
-    if(id !== prevState.id) {
-      console.log(`OLD ID => ${prevState.id}, NEW ID =>${id}`)
-      if (prevState.id === null) {
-      this.loadVideo(id);
+    if(songId !== prevState.songId) {
+      if (prevState.songId === null) {
+      this.loadVideo(songId);
       }
 
     }
   };
 
-  loadVideo = (id) => {
-    this.player = new window.YT.Player(`youtube-player-${id}`, {
-      videoId: id,
+  loadVideo = (songId) => {
+    this.player = new window.YT.Player(`youtube-player-${songId}`, {
+      videoId: songId,
       playerVars: {
         autoplay: 1,
         playsinline: 1,
@@ -81,11 +79,9 @@ class Player extends React.PureComponent {
   };
 
   onPlayerReady = (event) => {
-    console.log('player ready')
     event.target.pauseVideo();
     setTimeout(() => {this.setState({ isReady: true })},1000)
     this.setState({ cElement: event });
-    console.log('PLAYER READY, SONG ID =>', this.state.id)
   };
 
   togglePause(event) {
@@ -103,27 +99,27 @@ class Player extends React.PureComponent {
   toggleSong(dir) {
     this.setState({isReady: false})
 
-    let current = this.state.currentSong
+    let current = this.state.playlistIdx
     let next
     if (dir === 'next') {
       next = current += 1
     } else if (dir === 'prev') {
-      next = current -=1
+      next = current -= 1
     }
-    let singles = this.state.singles
-    let newId = singles[next].name.id
+    let playlist = this.props.playlist
+    let newId = playlist[next].name.id
 
     this.player.cueVideoById(newId)
-    this.setState({ currentSong: next });
-    this.setState({ id: newId })
+    this.setState({ playlistIdx: next });
+    this.setState({ songId: newId })
     this.setState({isPaused: true})
     setTimeout(() => {this.setState({ isReady: true })},3000)
 
   }
 
   render = () => {
-    console.log('PLAYER RENDERED, STATE =>', this.state)
-    const { id } = this.state;
+    console.log("PLAYER RENDERED. PLAYLIST => ", this.props.playlist)
+    const { songId } = this.state;
     return (
       <div>
         <Controls
@@ -131,18 +127,18 @@ class Player extends React.PureComponent {
           isPaused={this.state.isPaused}
           togglePause={this.togglePause}
           toggleSong={this.toggleSong}
-          singles={this.state.singles}
-          id={id}
-          currentSong={this.state.currentSong}
+          playlist={this.props.playlist}
+          songId={songId}
+          playlistIdx={this.state.playlistIdx}
         />
 
         <div>
-          <div id={`youtube-player-${id}`} className="hide" />
-          {/* <div id={`youtube-player-${id}`} /> */}
+          <div id={`youtube-player-${songId}`} className="hide" />
+          {/* <div id={`youtube-player-${songId}`} /> */}
         </div>
 
         {/* <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
-          <div id={`youtube-player-${id}`} />
+          <div id={`youtube-player-${songId}`} />
         </div> */}
       </div>
     );
@@ -152,6 +148,7 @@ class Player extends React.PureComponent {
 const mapState = (state) => {
   return {
     inventory: state.inventory,
+    playlist: state.playlist
   };
 };
 

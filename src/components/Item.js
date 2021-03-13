@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem } from "../store/";
+import { addItem, addSingle } from "../store/";
 
 export function Item(props) {
   const dispatch = useDispatch();
@@ -20,10 +20,11 @@ export function Item(props) {
     if (!(id in inventory)) {
       let item = {};
       item[id] = room.item;
-      // if (item.type === 'single') {
 
-        dispatch(addItem(item));
-      // }
+      dispatch(addItem(item));
+      if (item[id].type === 'single') {
+        dispatch(addSingle(item[id]));
+      }
       setNewItem(true);
 
       if (id === 1) {

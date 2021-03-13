@@ -8,7 +8,6 @@ export function Room(props) {
   const room = useSelector((state) => state.rooms[props.match.params.id]);
   const togglePlayer = props.togglePlayer
 
-  console.log("Current Room: ",room);
 
   if (room.name) {
     return (
