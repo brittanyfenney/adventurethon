@@ -1,21 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Controls } from "./index";
 import "98.css";
-import { Controls } from './index'
 
-export default class Player extends React.PureComponent {
+class Player extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      id: "qq09UkPRdFY",
+      id: null,
       isReady: false,
       isPaused: true,
       cElement: null,
+      singles: [],
+      currentSong: null
     };
     this.togglePause = this.togglePause.bind(this);
     this.onPlayerReady = this.onPlayerReady.bind(this);
+    this.toggleSong = this.toggleSong.bind(this)
   }
 
   componentDidMount = () => {
+    console.log("PLAYER MOUNTED, PROPS =>", this.props);
     // On mount, check to see if the API script is already loaded
     if (!window.YT) {
       // If not, load the script asynchronously
@@ -29,14 +34,42 @@ export default class Player extends React.PureComponent {
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     } else {
       // If script is already there, load the video directly
-      this.loadVideo();
+      // this.loadVideo();
     }
   };
 
-  componentDidUpdate;
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log("COMPONENT UPDATED")
+    let { id, singles } = this.state
+    let inventory = this.props.inventory
 
-  loadVideo = () => {
-    const { id } = this.state;
+    if (inventory !== prevProps.inventory) {
+      let singlesArray = [];
+      for (const [key, value] of Object.entries(inventory)) {
+        if (value.type === "single") singlesArray.push(inventory[key]);
+      }
+      if (singlesArray.length > singles.length) {
+        this.setState({ singles: singlesArray });
+      }
+    }
+
+    if(!id && singles.length) {
+      this.setState({id: singles[0].name.id})
+      this.setState({currentSong: 0})
+    }
+
+    if(id !== prevState.id) {
+      console.log(`OLD ID => ${prevState.id}, NEW ID =>${id}`)
+      if (prevState.id === null) {
+      this.loadVideo(id);
+      }
+
+    }
+  };
+
+  loadVideo = (id) => {
+    console.log('LOADING VIDEO')
+    // const { id } = this.state;
 
     // the Player object is created uniquely based on the id in props
     this.player = new window.YT.Player(`youtube-player-${id}`, {
@@ -52,8 +85,10 @@ export default class Player extends React.PureComponent {
   };
 
   onPlayerReady = (event) => {
+    event.target.pauseVideo();
     this.setState({ isReady: true });
     this.setState({ cElement: event });
+    console.log('PLAYER READY, SONG ID =>', this.state.id)
   };
 
   togglePause(event) {
@@ -68,46 +103,55 @@ export default class Player extends React.PureComponent {
     }
   }
 
-  toggleNext(next) {
-    this.setState({ id: next });
+  toggleSong(dir) {
+    console.log('toggling new song')
+    let current = this.state.currentSong
+    let next
+    if (dir === 'next') {
+      next = current += 1
+    } else if (dir === 'prev') {
+      next = current -=1
+    }
+    let singles = this.state.singles
+    let newId = singles[next].name.id
+
+    this.setState({ currentSong: next });
+    this.setState({ id: newId })
+    this.player.cueVideoById(newId)
   }
 
   render = () => {
+    console.log('PLAYER RENDERED, STATE =>', this.state)
     const { id } = this.state;
-    console.log("PLAYER RENDER, USER HAS PLAYER?", this.props.hasPlayer);
-
     return (
       <div>
-        {/* <div className={true ? "window" : "hide"}>
-          <div className="title-bar">
-            <div className="title-bar-text">Discman</div>
-            <div className="title-bar-controls">
-              <button aria-label="Minimize" />
-              <button aria-label="Maximize" />
-              <button aria-label="Close" />
-            </div>
-          </div>
+        <Controls
+          isReady={this.state.isReady}
+          isPaused={this.state.isPaused}
+          togglePause={this.togglePause}
+          toggleSong={this.toggleSong}
+          singles={this.state.singles}
+          id={id}
+          currentSong={this.state.currentSong}
+        />
 
-          <div className="window-body">
-            <p>Howdy</p>
-            {this.state.isReady ? (
-              <button type="button" onClick={this.togglePause}>
-                {this.state.isPaused ? "Play" : "Pause"}
-              </button>
-            ) : (
-              <button disabled>Play</button>
-            )}
-            <button>Next</button>
-            </div>
-
-         </div> */}
-         <Controls isReady={this.state.isReady} isPaused={this.state.isPaused} togglePause={this.togglePause}/>
-
-        <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
-          <div id={`youtube-player-${id}`} />
+        <div>
+          <div id={`youtube-player-${id}`} className="hide" />
+          {/* <div id={`youtube-player-${id}`} /> */}
         </div>
+
+        {/* <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
+          <div id={`youtube-player-${id}`} />
+        </div> */}
       </div>
     );
   };
 }
 
+const mapState = (state) => {
+  return {
+    inventory: state.inventory,
+  };
+};
+
+export default connect(mapState)(Player);

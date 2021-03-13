@@ -4,7 +4,6 @@ import { SignUp, Player, Window, Entry, Room } from "./components";
 
 
 export default function Routes(props) {
-  console.log("ROUTE PROPS =>", props)
   const togglePlayer = props.togglePlayer
   return (
     <Switch>

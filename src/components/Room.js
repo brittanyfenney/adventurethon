@@ -8,8 +8,7 @@ export function Room(props) {
   const room = useSelector((state) => state.rooms[props.match.params.id]);
   const togglePlayer = props.togglePlayer
 
-  // console.log("Room props: ",props);
-  // console.log("Current Room: ",room);
+  console.log("Current Room: ",room);
 
   if (room.name) {
     return (
@@ -22,29 +21,27 @@ export function Room(props) {
         <div className="direction-buttons">
           {room.directions.east && (
             <Link to={`/room/${room.directions.east}`}>
-              <button class="nes-btn">Go East.</button>
+              <button className="nes-btn">Go East.</button>
             </Link>
           )}
           {room.directions.west && (
             <Link to={`/room/${room.directions.west}`}>
-              <button class="nes-btn">Go West.</button>
+              <button className="nes-btn">Go West.</button>
             </Link>
           )}
           {room.directions.north && (
             <Link to={`/room/${room.directions.north}`}>
-              <button class="nes-btn">Go North.</button>
+              <button className="nes-btn">Go North.</button>
             </Link>
           )}
           {room.directions.south && (
             <Link to={`/room/${room.directions.south}`}>
-              <button class="nes-btn">Go South.</button>
+              <button className="nes-btn">Go South.</button>
             </Link>
           )}
         </div>
         </div>
-        {/* <div className="toggle-bp">
-          <button>Open Backpack</button>
-        </div> */}
+
         <Item room={room} togglePlayer={togglePlayer} />
 
       </div>

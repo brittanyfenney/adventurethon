@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "98.css";
 
 export function Backpack() {
+  const backpack = useSelector(state => state.inventory.backpack)
+  console.log(backpack)
   return (
-    <div className={"window"}>
+    <div className={backpack ? "window" : "hide"}>
       <div className="title-bar">
         <div className="title-bar-text">Backpack</div>
         <div className="title-bar-controls">
@@ -14,7 +17,7 @@ export function Backpack() {
       </div>
 
       <div className="window-body" id="backpack-tree">
-        <ul class="tree-view" >
+        <ul className="tree-view" >
           <li>
             Backpack
             <ul>
