@@ -122,6 +122,7 @@ class Player extends React.PureComponent {
     const { songId } = this.state;
     return (
       <div>
+        <div>
         <Controls
           isReady={this.state.isReady}
           isPaused={this.state.isPaused}
@@ -131,10 +132,10 @@ class Player extends React.PureComponent {
           songId={songId}
           playlistIdx={this.state.playlistIdx}
         />
-
+        </div>
         <div>
-          <div id={`youtube-player-${songId}`} className="hide" />
-          {/* <div id={`youtube-player-${songId}`} /> */}
+          {/* <div id={`youtube-player-${songId}`} className="hide" /> */}
+          <div id={`youtube-player-${songId}`} />
         </div>
 
         {/* <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>

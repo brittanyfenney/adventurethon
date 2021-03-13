@@ -36,7 +36,7 @@ export function Item(props) {
   }
   return (
     <div className={newItem ? "nes-container" : "hide"} id="new-item-alert">
-      <p>You found a {(room.item.type === 'single') ? `new single: ${room.item.name.name}` : room.item.name}!</p>
+      <p>You found a {(room.item.type === 'single') ? `new CD single: ${room.item.name.name}` : room.item.name}!</p>
       <button type="button" className="nes-btn" onClick={onClick}>Okay!</button>
     </div>
   );

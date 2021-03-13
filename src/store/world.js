@@ -15,8 +15,8 @@ let key = new Item(2,"Key", "What does it open?", "tool")
 let flashlight = new Item(1,"Flashlight", "Are you afraid of the dark?", "tool")
 
 // SINGLES
-let fantasy = new Item(50, {name: "Fantasy", artist: "Mariah Carey", id: "qq09UkPRdFY"}, "Welcome to the fantasy...", "single")
-let noScrubs = new Item(51, {name: "No Scrubs", artist: "TLC", id: "FrLequ6dUdM"}, "Scrub is a guy that can't get not love from me.", "single")
+let fantasy = new Item(50, {name: "Fantasy", artist: "Mariah Carey", id: "UjAOYDqGcaE"}, "Welcome to the fantasy...", "single")
+let noScrubs = new Item(51, {name: "No Scrubs", artist: "TLC", id: "y4pjKc0ZRiE"}, "Scrub is a guy that can't get not love from me.", "single")
 
 
 
