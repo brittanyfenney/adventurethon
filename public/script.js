@@ -1,5 +1,5 @@
 
-// var scriptUrl =
+// const scriptUrl =
 //   "https://desolate-beyond-21995.herokuapp.com/https://www.youtube.com/s/player/d29f3109/www-widgetapi.vflset/www-widgetapi.js";
 const scriptUrl = '/ytscript.js'
 if (!window["YT"]) var YT = { loading: 0, loaded: 0 };
