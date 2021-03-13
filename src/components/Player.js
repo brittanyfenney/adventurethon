@@ -137,13 +137,13 @@ class Player extends React.PureComponent {
         />
         </div>
         <div>
-          <div id={`youtube-player-${songId}`} className="hide" />
+          {/* <div id={`youtube-player-${songId}`} className="hide" /> */}
           {/* <div id={`youtube-player-${songId}`} /> */}
         </div>
 
-        {/* <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
+        <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
           <div id={`youtube-player-${songId}`} />
-        </div> */}
+        </div>
       </div>
     );
   };
