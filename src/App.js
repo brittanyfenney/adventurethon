@@ -8,7 +8,7 @@ import { togglePlayer } from "./store/";
 function App() {
   return (
     <div className="App">
-      <div className="window" id="main-window">
+      <div className="window" id="app-window">
         <div className="title-bar">
           <div className="title-bar-text">Adventurethon</div>
           <div className="title-bar-controls">

@@ -5,10 +5,12 @@ import "../index.css";
 
 export function Window() {
   return (
-    <div className="main-window">
+    <div className="main-window" id="hello">
       <p>Hello. Are you new here?</p>
+      <div>
       <Link to="/signup"><button>Yes.</button></Link>
       <Link to="/player"><button>No.</button></Link>
+      </div>
     </div>
   );
 }
