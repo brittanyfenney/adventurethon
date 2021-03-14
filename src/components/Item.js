@@ -16,7 +16,6 @@ export function Item(props) {
   };
 
   const restrictedOnClick = () => {
-    console.log("restricted on click");
     setNewItem(false);
     setRestricted(false);
     history.go(-1);
@@ -26,25 +25,26 @@ export function Item(props) {
     if (!restricted && !(room.restrictions.item in inventory)) {
       setRestricted(true);
     } else if (room.restrictions.item in inventory) {
-      if(restricted) {
-        setRestricted(false)
+      if (restricted) {
+        setRestricted(false);
       }
 
-      if( room.item.id) {
-      let id = room.item.id;
+      if (room.item.id) {
+        let id = room.item.id;
 
-      if (!(id in inventory)) {
-        let item = {};
-        item[id] = room.item;
+        if (!(id in inventory)) {
+          let item = {};
+          item[id] = room.item;
 
-        dispatch(addItem(item));
-        if (item[id].type === "single") {
-          dispatch(addSingle(item[id]));
+          dispatch(addItem(item));
+          if (item[id].type === "single") {
+            dispatch(addSingle(item[id]));
+          }
+          setNewItem(true);
         }
-        setNewItem(true);
       }
     }
-  } }else {
+  } else {
     if (room.item.id) {
       let id = room.item.id;
 

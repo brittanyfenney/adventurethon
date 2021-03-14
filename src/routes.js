@@ -1,22 +1,20 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { SignUp, Player, Window, Entry, Room } from "./components";
-
+import { SignUp, SignIn, Window, Entry, Room } from "./components";
 
 export default function Routes(props) {
-  const togglePlayer = props.togglePlayer
+  const togglePlayer = props.togglePlayer;
   return (
     <Switch>
       <Route path="/signup" component={SignUp} />
-      <Route path="/player" component={Player} />
+      <Route path="/signin" component={SignIn} />
       <Route path="/entry" component={Entry} />
       <Route
-      path="/room/:id"
-      render={(props) => (
-        <Room {...props} togglePlayer={togglePlayer} />
-      )}
+        path="/room/:id"
+        render={(props) => <Room {...props} togglePlayer={togglePlayer} />}
       />
-      <Route path="/" component={Window} />
+      <Route exact path="/" component={Window} />
     </Switch>
   );
 }
+

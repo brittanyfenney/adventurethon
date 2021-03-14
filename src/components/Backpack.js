@@ -8,12 +8,12 @@ export function Backpack() {
   const playlist = useSelector((state) => state.playlist);
   const tools = [];
   for (const key in inventory) {
-    let item = inventory[key]
+    let item = inventory[key];
     if (item.type === "tool") tools.push(item);
   }
   const awards = [];
   for (const key in inventory) {
-    let item = inventory[key]
+    let item = inventory[key];
     if (item.type === "award") awards.push(item);
   }
 
@@ -33,44 +33,45 @@ export function Backpack() {
 
       <div className="window-body" id="backpack-tree">
         <div id="tree">
-        <ul className="tree-view">
-          {player && <li>Discman</li>}
-          {Boolean(awards.length) &&<li>
-            Awards
-            <ul>
-              {awards.map((award) => {
-                return (
-                  <li key={award.id}>
-                    {award.name}
-                  </li>
-                );
-              })}
-            </ul>
-          </li>}
-          {Boolean(tools.length) && <li>
-            Tools
-          <ul>
-          {tools.map((tool) => {
-            return <li key={tool.id}>{tool.name}</li>;
-          })}
+          <ul className="tree-view">
+            {player && <li>Discman</li>}
+            {Boolean(awards.length) && (
+              <li>
+                Awards
+                <ul>
+                  {awards.map((award) => {
+                    return <li key={award.id}>{award.name}</li>;
+                  })}
+                </ul>
+              </li>
+            )}
+
+            {Boolean(tools.length) && (
+              <li>
+                Tools
+                <ul>
+                  {tools.map((tool) => {
+                    return <li key={tool.id}>{tool.name}</li>;
+                  })}
+                </ul>
+              </li>
+            )}
+
+            {Boolean(playlist.length) && (
+              <li>
+                CDs
+                <ul>
+                  {playlist.map((song) => {
+                    return (
+                      <li key={song.name.id}>
+                        {song.name.name} by {song.name.artist}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            )}
           </ul>
-          </li>}
-
-          {Boolean(playlist.length) &&<li>
-            CDs
-            <ul>
-              {playlist.map((song) => {
-                return (
-                  <li key={song.name.id}>
-                    {song.name.name} by {song.name.artist}
-                  </li>
-                );
-              })}
-            </ul>
-          </li>}
-
-
-        </ul>
         </div>
       </div>
     </div>

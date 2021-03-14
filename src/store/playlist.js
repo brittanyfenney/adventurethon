@@ -30,7 +30,7 @@ export default function playlist(state = defaultPlaylist, action) {
     case GOT_PLAYLIST:
       return action.playlist;
     case ADD_SINGLE:
-      return [...state, action.single]
+      return [...state, action.single];
     default:
       return state;
   }

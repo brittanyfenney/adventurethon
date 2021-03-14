@@ -8,7 +8,6 @@ export function Room(props) {
   const room = useSelector((state) => state.rooms[props.match.params.id]);
   const togglePlayer = props.togglePlayer;
   const inventory = useSelector((state) => state.inventory);
-  console.log(inventory);
 
   if (room.name) {
     return (

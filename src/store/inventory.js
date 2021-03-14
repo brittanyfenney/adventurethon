@@ -2,11 +2,9 @@
 
 const ADD_ITEM = "ADD_ITEM";
 
-
 // ACTION CREATORS
 
 export const addItem = (item) => ({ type: ADD_ITEM, item });
-
 
 const defaultInventory = { backpack: false };
 

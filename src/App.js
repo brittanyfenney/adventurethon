@@ -1,9 +1,9 @@
-import "98.css";
-import "./index.css";
 import Routes from "./routes";
 import { Player } from "./components";
 import { Backpack } from "./components";
 import { togglePlayer } from "./store/";
+import "98.css";
+import "./index.css";
 
 function App() {
   return (
@@ -19,9 +19,7 @@ function App() {
         </div>
 
         <div className="window-body" id="routes-container">
-
-            <Routes togglePlayer={togglePlayer} />
-
+          <Routes togglePlayer={togglePlayer} />
         </div>
       </div>
 
@@ -32,8 +30,6 @@ function App() {
       <div id="player-container">
         <Player />
       </div>
-
-
     </div>
   );
 }

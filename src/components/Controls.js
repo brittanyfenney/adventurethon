@@ -22,42 +22,39 @@ export function Controls(props) {
           {props.songId
             ? `${playlist[playlistIdx].name.name} by ${playlist[playlistIdx].name.artist} `
             : `You don't have any songs right now.`}
-            {/* {(props.songId && !props.isReady) && ".....Loading....."} */}
         </p>
 
+        <p>{props.songId && !props.isReady ? ".....Loading....." : "Ready!"}</p>
 
-        <p>{(props.songId && !props.isReady) ? ".....Loading....." : "Ready!"}</p>
+        <div>
+          {playlistIdx > 0 ? (
+            <button type="button" onClick={() => props.toggleSong("prev")}>
+              Prev
+            </button>
+          ) : (
+            <button type="button" disabled>
+              Prev
+            </button>
+          )}
 
-<div>
-        {playlistIdx > 0 ? (
-          <button type="button" onClick={() => props.toggleSong("prev")}>
-            Prev
-          </button>
-        ) : (
-          <button type="button" disabled>
-            Prev
-          </button>
-        )}
+          {props.isReady ? (
+            <button type="button" onClick={props.togglePause}>
+              {props.isPaused ? "Play" : "Pause"}
+            </button>
+          ) : (
+            <button disabled>Play</button>
+          )}
 
-        {props.isReady ? (
-          <button type="button" onClick={props.togglePause}>
-            {props.isPaused ? "Play" : "Pause"}
-          </button>
-        ) : (
-          <button disabled>Play</button>
-        )}
-
-
-        {playlistIdx < (playlist.length -1) ? (
-        <button type="button" onClick={() => props.toggleSong("next")}>
-          Next
-        </button>
+          {playlistIdx < playlist.length - 1 ? (
+            <button type="button" onClick={() => props.toggleSong("next")}>
+              Next
+            </button>
           ) : (
             <button type="button" disabled>
               Next
             </button>
           )}
-          </div>
+        </div>
       </div>
     </div>
   );

@@ -3,12 +3,19 @@ import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import playlist from "./playlist";
-import user from "./user"
-import { items, rooms } from "./world"
-import player from "./player"
-import inventory from "./inventory"
+import user from "./user";
+import { items, rooms } from "./world";
+import player from "./player";
+import inventory from "./inventory";
 
-const reducer = combineReducers({ playlist, user, items, rooms, player, inventory });
+const reducer = combineReducers({
+  playlist,
+  user,
+  items,
+  rooms,
+  player,
+  inventory,
+});
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );

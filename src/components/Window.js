@@ -9,7 +9,7 @@ export function Window() {
       <p>Hello. Are you new here?</p>
       <div>
       <Link to="/signup"><button>Yes.</button></Link>
-      <Link to="/player"><button>No.</button></Link>
+      <Link to="/signin"><button>No.</button></Link>
       </div>
     </div>
   );
