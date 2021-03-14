@@ -12,11 +12,21 @@ class Item {
 // ITEMS
 let discman = new Item(1,"Discman", "A portable CD player. Cool!", "technology")
 let key = new Item(2,"Key", "What does it open?", "tool")
-let flashlight = new Item(1,"Flashlight", "Are you afraid of the dark?", "tool")
+let flashlight = new Item(3,"Flashlight", "Are you afraid of the dark?", "tool")
+let threeDeeGlasses = new Item(4, "3D glasses", "You can see in 3D now!", "tool")
 
 // SINGLES
 let fantasy = new Item(50, {name: "Fantasy", artist: "Mariah Carey", id: "UjAOYDqGcaE"}, "Welcome to the fantasy...", "single")
 let noScrubs = new Item(51, {name: "No Scrubs", artist: "TLC", id: "y4pjKc0ZRiE"}, "Scrub is a guy that can't get not love from me.", "single")
+let oneMoreTime = new Item(52, {name: "...Baby One More Time", artist: "Britney Spears", id: "BCMzBH0or4I"}, "single")
+let wannabe = new Item(53, {name: "Wannabe", artist: "The Spice Girls", id: "fw-QRyQcFH8"}, "single")
+let nothingCompares = new Item(54, {name: "Nothing Compares 2 U", artist: "Sinead O'Connor", id: "XrnTTuqwIC0"}, "single")
+let genie = new Item(55, {name: "Genie in a Bottle", artist: "Christina Aguilera", id: "Iu7Ixskp0dY"}, "single")
+let thatThing = new Item(56, {name: "Doo Wop (That Thing)", artist: "Lauryn Hill", id:"G5zirRc34Xc"}, "single")
+let barbie = new Item(57, {name: "Barbie Girl", artist: "Aqua", id: "v35fWf1CWFQ"}, "single")
+let speak = new Item(58, {name: "Don't Speak", artist: "No Doubt", id: "Qbb7r1XgMTU"}, "single")
+let bidi = new Item(59, {name: "Bidi Bidi Bom Bom", artist: "Selena", id:"aP9mKAZUnhI"})
+
 
 
 
@@ -26,10 +36,20 @@ const allItems = {
   1: discman,
   2: key,
   3: flashlight,
+  4: threeDeeGlasses,
 
 
   50: fantasy,
-  51: noScrubs
+  51: noScrubs,
+  52: oneMoreTime,
+  53: wannabe,
+  54: nothingCompares,
+  55: genie,
+  56: thatThing,
+  57: barbie,
+  58: speak,
+  59: bidi
+
 }
 
 export function items(state = allItems, action) {
@@ -62,14 +82,14 @@ let kitchen = new Room(3, "Kitchen", {west: 1, south: 6, east: 10}, null, noScru
 let hallTwo = new Room(4, "hall", {west: 5, east: 6, north: 1, south: 7})
 let guestBedroom = new Room(5, "Guest Bedroom", {east: 4, west: 9}, null, key)
 let diningRoom = new Room(6, "Dining Room", {west: 4, north: 3}, null, fantasy)
-let livingRoom = new Room(7, "Living Room", {north: 4, south: 11})
-let closetOne = new Room(8, "bedroom closet", {east: 2}, {item: 3, message: "It's too dark to see anything."})
-let closetTwo = new Room(9, "guest bedroom closet", {east: 5}, {item: 3, message: "It's too dark to see anything."})
-let pantry = new Room(10, "Pantry", {west: 3}, {item: 3, noMessage: "It's too dark to see anything.", yesMessage: "You turn on the flashlight."})
-let mudroom = new Room(11, "Mudroom", {north: 7, south: 12})
-let backyard = new Room(12, "backyard", {north: 11, east: 13})
-let neighborYard = new Room(13, "neighbor's yard", {west: 12, south: 14, north: 16})
-let forest = new Room(14, "the forest", {north: 13, south: 15})
+let livingRoom = new Room(7, "Living Room", {north: 4, south: 11}, null, oneMoreTime)
+let closetOne = new Room(8, "bedroom closet", {east: 2}, {item: 3, message: "It's too dark to see anything."}, wannabe)
+let closetTwo = new Room(9, "guest bedroom closet", {east: 5}, {item: 3, message: "It's too dark to see anything."}, nothingCompares)
+let pantry = new Room(10, "Pantry", {west: 3}, {item: 3, noMessage: "It's too dark to see anything.", yesMessage: "You turn on the flashlight."}, genie)
+let mudroom = new Room(11, "Mudroom", {north: 7, south: 12}, thatThing)
+let backyard = new Room(12, "backyard", {north: 11, east: 13}, barbie)
+let neighborYard = new Room(13, "neighbor's yard", {west: 12, south: 14, north: 16}, speak)
+let forest = new Room(14, "the forest", {north: 13, south: 15}, bidi)
 let forestTwo = new Room(15, "the forest still..", {north: 14})
 let sunroom = new Room(16, "the neighbor's Sunroom", {south: 13, east: 21, north: 17}, {item:2, noMessage:"The door is locked. What are you, a burglar?", yesMessage: "You have a key! You unlock the door."})
 let neighborKitchen = new Room(17, "the neighbor's Kitchen", {north: 18, south: 16, east: 22})
