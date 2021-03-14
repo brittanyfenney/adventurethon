@@ -1,6 +1,6 @@
 {
-  "short_name": "My PWA",
-  "name": "My Progressive Web App",
+  "short_name": "Adeventure-thon",
+  "name": "My Text Adventure Progressive Web App",
   "icons": [
     {
       "src": "favicon.ico",
