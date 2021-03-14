@@ -7,7 +7,8 @@ import { Item } from './Item'
 export function Room(props) {
   const room = useSelector((state) => state.rooms[props.match.params.id]);
   const togglePlayer = props.togglePlayer
-
+  const items = useSelector((state) => state.items)
+console.log(items)
 
   if (room.name) {
     return (
