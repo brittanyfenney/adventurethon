@@ -20,22 +20,32 @@ export function Room(props) {
         <div className="direction-buttons">
           {room.directions.east && (
             <Link to={`/room/${room.directions.east}`}>
-              <button className="nes-btn">Go East.</button><br />
+              <button className="nes-btn">Go East</button><br />
             </Link>
           )}
           {room.directions.west && (
             <Link to={`/room/${room.directions.west}`}>
-              <button className="nes-btn">Go West.</button><br />
+              <button className="nes-btn">Go West</button><br />
             </Link>
           )}
           {room.directions.north && (
             <Link to={`/room/${room.directions.north}`}>
-              <button className="nes-btn">Go North.</button><br />
+              <button className="nes-btn">Go North</button><br />
             </Link>
           )}
           {room.directions.south && (
             <Link to={`/room/${room.directions.south}`}>
-              <button className="nes-btn">Go South.</button><br />
+              <button className="nes-btn">Go South</button><br />
+            </Link>
+          )}
+          {room.directions.upstairs && (
+            <Link to={`/room/${room.directions.upstairs}`}>
+              <button className="nes-btn">Go Upstairs</button><br />
+            </Link>
+          )}
+          {room.directions.downstairs && (
+            <Link to={`/room/${room.directions.downstairs}`}>
+              <button className="nes-btn">Go Downstairs</button><br />
             </Link>
           )}
         </div>
