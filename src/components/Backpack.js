@@ -6,9 +6,10 @@ export function Backpack() {
   const inventory = useSelector((state) => state.inventory);
   const player = useSelector((state) => state.player);
   const playlist = useSelector((state) => state.playlist);
-
+  console.log('IN BACKPACK. INVENTORY => ', inventory)
   const tools = [];
-  for (const item in inventory) {
+  for (const key in inventory) {
+    let item = inventory[key]
     if (item.type === "tool") tools.push(item);
   }
 
@@ -27,6 +28,7 @@ export function Backpack() {
       </div>
 
       <div className="window-body" id="backpack-tree">
+        <div id="tree">
         <ul className="tree-view">
           {player && <li>Discman</li>}
           {Boolean(tools.length) && <li>
@@ -51,6 +53,7 @@ export function Backpack() {
             </ul>
           </li>}
         </ul>
+        </div>
       </div>
     </div>
   );

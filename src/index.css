@@ -109,26 +109,6 @@ code {
   outline-offset: -4px;
 }
 
-#backpack-container {
-  width: 90%;
-  height: 20%;
-  /* position: absolute;
-  bottom: 170px;
-  left: 0; */
-  margin-left: 5%;
-  margin-right: 5%;
-  text-align: left;
-}
-
-#backpack-window {
-  height: 100%;
-}
-
-#backpack-tree {
-  height: 70%;
-  overflow-y: auto;
-}
-
 .hide {
   display: none;
 }
@@ -165,11 +145,38 @@ code {
   color: black;
 }
 
+#backpack-container {
+  width: 90%;
+  height: 20%;
+  /* position: absolute;
+  bottom: 170px;
+  left: 0; */
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: left;
+}
+
+#backpack-window {
+  height: 100%;
+}
+
+#backpack-tree {
+  height: 70%;
+
+}
+
+
 .tree-view summary {
   display: inside;
   cursor: none;
 }
 
 .tree-view {
-  height: 100%
+  height: 100%;
+  overflow-y: auto;
+}
+
+#tree {
+  height: 100%;
+
 }

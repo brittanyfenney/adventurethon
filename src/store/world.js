@@ -59,7 +59,7 @@ let bedroom = new Room(2, "Bedroom", {east: 1}, discman)
 let kitchen = new Room(3, "Kitchen", {west: 1, south: 6}, noScrubs)
 let hallTwo = new Room(4, "hall", {west: 5, east: 6, north: 1, south: 7})
 let guestBedroom = new Room(5, "Guest Bedroom", {east: 4}, key)
-let diningRoom = new Room(6, "Dining Room", {west: 4, south: 7}, fantasy)
+let diningRoom = new Room(6, "Dining Room", {west: 4}, fantasy)
 let livingRoom = new Room(7, "Living Room", {north: 4}, flashlight)
 
 
