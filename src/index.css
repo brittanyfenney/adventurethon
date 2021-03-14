@@ -14,9 +14,10 @@ div.root {
 #entry-window {
   font-family: "Press Start 2P", cursive;
   text-align: center;
-  background-color: black;
+  background-color: 212529;
   margin: 1px;
   height: 100%;
+  min-height:320px;
 }
 
 #entry-window p {
@@ -41,7 +42,8 @@ p {
 
 #app-window {
   width: 90%;
-  height: 335px;
+  /* height: 70%; */
+  /* max-height: 335px; */
   /* position: absolute;
   top: 10px; */
   margin-left: 5%;
@@ -57,6 +59,7 @@ p {
 
 #hello button {
   margin: 5px;
+  margin-bottom: 15px;
 }
 /*
 code {
@@ -86,7 +89,7 @@ code {
 
 .signup-window button {
   height: 20px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   padding-bottom: 0;
   vertical-align: bottom;
 }
@@ -120,8 +123,9 @@ code {
   justify-content: space-between;
   font-family: "Press Start 2P", cursive;
   text-align: center;
-  background-color: black;
+  background-color: 212529;
   margin: 1px;
+  min-height:320px;
 }
 
 #room-window p {
@@ -130,10 +134,11 @@ code {
 
 
 #routes-container {
-  height: 298px;
+  /* height: 298px; */
   width: 100%;
   margin: 0px;
   padding: 0px;
+
 }
 
 #new-item-alert {
