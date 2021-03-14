@@ -13,7 +13,8 @@ class Item {
 let discman = new Item(1,"Discman", "A portable CD player. Cool!", "technology")
 let key = new Item(2,"Key", "What does it open?", "tool")
 let flashlight = new Item(3,"Flashlight", "Are you afraid of the dark?", "tool")
-let threeDeeGlasses = new Item(4, "3D glasses", "You can see in 3D now!", "tool")
+let threeDeeGlasses = new Item(4, "pair of 3D glasses", "You can see in 3D now!", "tool")
+let trophy = new Item(5, "beautiful, gold-finish, junior soccer league trophy", "Prettttty!", "award")
 
 // SINGLES
 let fantasy = new Item(50, {name: "Fantasy", artist: "Mariah Carey", id: "UjAOYDqGcaE"}, "Welcome to the fantasy...", "single")
@@ -37,6 +38,7 @@ const allItems = {
   2: key,
   3: flashlight,
   4: threeDeeGlasses,
+  5: trophy,
 
 
   50: fantasy,
@@ -83,8 +85,8 @@ let hallTwo = new Room(4, "hall", {west: 5, east: 6, north: 1, south: 7})
 let guestBedroom = new Room(5, "Guest Bedroom", {east: 4, west: 9}, null, key)
 let diningRoom = new Room(6, "Dining Room", {west: 4, north: 3}, null, fantasy)
 let livingRoom = new Room(7, "Living Room", {north: 4, south: 11})
-let closetOne = new Room(8, "bedroom closet", {east: 2}, {item: 3, message: "It's too dark to see anything."}, threeDeeGlasses)
-let closetTwo = new Room(9, "guest bedroom closet", {east: 5}, {item: 3, message: "It's too dark to see anything."}, nothingCompares)
+let closetOne = new Room(8, "bedroom closet", {east: 2}, {item: 3, noMessage: "It's too dark to see anything.", yesMessage: "You turn on the flashlight."}, threeDeeGlasses)
+let closetTwo = new Room(9, "guest bedroom closet", {east: 5}, {item: 3, noMessage: "It's too dark to see anything.", yesMessage: "You turn on the flashlight."}, nothingCompares)
 let pantry = new Room(10, "Pantry", {west: 3}, {item: 3, noMessage: "It's too dark to see anything.", yesMessage: "You turn on the flashlight."}, genie)
 let mudroom = new Room(11, "Mudroom", {north: 7, south: 12}, null, flashlight)
 let backyard = new Room(12, "backyard", {north: 11, east: 13}, null , wannabe)
@@ -104,8 +106,8 @@ let upstairsHallThree = new Room(25, "the neighbor's upstairs hall", {west: 24, 
 let neighborBedroom = new Room(26, "the neighbor's Bedroom", {north: 24})
 let neighborGuestBedroom = new Room(27, "the neighbor's Guest Bedroom", {south: 23}, null, bidi)
 let neighborBathroom = new Room(28, "the neighbor's Bathroom", {south: 24})
-let attic = new Room(29, "the neighbor's Attic", {west: 30, downstairs: 25}, null, oneMoreTime)
-let hiddenRoom = new Room(30, "the neighbor's hidden room", {east: 29})
+let attic = new Room(29, "the neighbor's Attic", {hidden: 30, downstairs: 25}, null, oneMoreTime)
+let hiddenRoom = new Room(30, "the neighbor's hidden room", {east: 29}, null, trophy)
 
 
 

@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
 import { useSelector } from "react-redux";
 import { Item } from './Item'
+import "../index.css";
 
 export function Room(props) {
   const room = useSelector((state) => state.rooms[props.match.params.id]);
   const togglePlayer = props.togglePlayer
-  const items = useSelector((state) => state.items)
-console.log(items)
+  const inventory = useSelector((state) => state.inventory);
+  console.log(inventory)
+
 
   if (room.name) {
     return (
@@ -49,11 +50,15 @@ console.log(items)
               <button className="nes-btn">Go Downstairs</button><br />
             </Link>
           )}
+          {(room.directions.hidden && (4 in inventory)) ? (
+            <Link to={`/room/${room.directions.hidden}`}>
+              <button className="nes-btn">A 3D door!</button><br />
+            </Link>
+          ) : <div></div>}
         </div>
         </div>
 
         <Item room={room} togglePlayer={togglePlayer} />
-
       </div>
     );
   } else {

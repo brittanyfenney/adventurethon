@@ -6,11 +6,15 @@ export function Backpack() {
   const inventory = useSelector((state) => state.inventory);
   const player = useSelector((state) => state.player);
   const playlist = useSelector((state) => state.playlist);
-  console.log('IN BACKPACK. INVENTORY => ', inventory)
   const tools = [];
   for (const key in inventory) {
     let item = inventory[key]
     if (item.type === "tool") tools.push(item);
+  }
+  const awards = [];
+  for (const key in inventory) {
+    let item = inventory[key]
+    if (item.type === "award") awards.push(item);
   }
 
   return (
@@ -31,6 +35,18 @@ export function Backpack() {
         <div id="tree">
         <ul className="tree-view">
           {player && <li>Discman</li>}
+          {Boolean(awards.length) &&<li>
+            Awards
+            <ul>
+              {awards.map((award) => {
+                return (
+                  <li key={award.id}>
+                    {award.name}
+                  </li>
+                );
+              })}
+            </ul>
+          </li>}
           {Boolean(tools.length) && <li>
             Tools
           <ul>
@@ -52,6 +68,8 @@ export function Backpack() {
               })}
             </ul>
           </li>}
+
+
         </ul>
         </div>
       </div>

@@ -121,7 +121,6 @@ class Player extends React.PureComponent {
   }
 
   render = () => {
-    console.log("PLAYER RENDERED. PLAYLIST => ", this.props.playlist)
     const { songId } = this.state;
     return (
       <div>
