@@ -40,17 +40,6 @@ class Player extends React.PureComponent {
   componentDidUpdate = (prevProps, prevState) => {
     let { songId } = this.state
     let playlist = this.props.playlist
-    // let inventory = this.props.inventory
-
-    // if (inventory !== prevProps.inventory) {
-    //   let singlesArray = [];
-    //   for (const [key, value] of Object.entries(inventory)) {
-    //     if (value.type === "single") singlesArray.push(inventory[key]);
-    //   }
-    //   if (singlesArray.length > singles.length) {
-    //     this.setState({ singles: singlesArray });
-    //   }
-    // }
 
     if(!songId && playlist.length) {
       this.setState({songId: playlist[0].name.id})
@@ -79,9 +68,7 @@ class Player extends React.PureComponent {
   };
 
   onPlayerReady = (event) => {
-    // event.target.playVideo()
     event.target.pauseVideo();
-    // setTimeout(() => {event.target.pauseVideo()}, 1000)
     this.setState({ cElement: event });
     setTimeout(() => {this.setState({ isReady: true })},1000)
     this.setState({ cElement: event });

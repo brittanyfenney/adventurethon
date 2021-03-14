@@ -17,15 +17,18 @@ export function Controls(props) {
         </div>
       </div>
 
-      <div className="window-body">
+      <div className="window-body" id="control-window">
         <p>
           {props.songId
             ? `${playlist[playlistIdx].name.name} by ${playlist[playlistIdx].name.artist} `
-            : `Howdy! You don't have any songs right now.`}
-            {(props.songId && !props.isReady) && ".....Loading....."}
+            : `You don't have any songs right now.`}
+            {/* {(props.songId && !props.isReady) && ".....Loading....."} */}
         </p>
 
 
+        <p>{(props.songId && !props.isReady) ? ".....Loading....." : "Ready!"}</p>
+
+<div>
         {playlistIdx > 0 ? (
           <button type="button" onClick={() => props.toggleSong("prev")}>
             Prev
@@ -54,6 +57,7 @@ export function Controls(props) {
               Next
             </button>
           )}
+          </div>
       </div>
     </div>
   );

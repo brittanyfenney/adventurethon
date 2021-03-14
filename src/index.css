@@ -94,6 +94,26 @@ code {
   vertical-align: bottom;
 }
 
+#control-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#control-window p {
+  margin:0px
+}
+
+#control-window button {
+  height: 20px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-bottom: 0;
+  vertical-align: bottom;
+}
+
 #player-container {
   width: 90%;
   height: 20%;
