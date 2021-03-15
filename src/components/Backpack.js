@@ -23,7 +23,7 @@ export function Backpack() {
       id="backpack-window"
     >
       <div className="title-bar">
-        <div className="title-bar-text">Backpack</div>
+        <div className="title-bar-text">Jansport Backpack</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize" />
           <button aria-label="Maximize" />

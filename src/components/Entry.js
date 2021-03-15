@@ -20,7 +20,7 @@ export function Entry() {
     <div className="nes-container is-dark with-title" id="entry-window">
       <p className="title">Welcome, {user.name}. </p>
       <p>You are in an empty room.</p>
-      <p>You are carrying a backpack.</p>
+      <p>You are carrying a Jansport backpack.</p>
       <p>There is a door in front of you. What would you like to do?</p>
       <Link to="/room/1">
         <button className="nes-btn">Go through the door.</button>
