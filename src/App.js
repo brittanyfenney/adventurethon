@@ -69,7 +69,7 @@ function App() {
       <div className="nes-balloon from-left" id="install" ><p>Open the share menu and click "Add to Home Screen" to install this app.</p>
       <button className="nes-btn is-primary" onClick={onClick}>Got it!</button></div>
 
-        <div><i class="nes-kirby"></i></div>
+        <div><i className="nes-kirby"></i></div>
       </div>
 
 
