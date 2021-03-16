@@ -59,7 +59,7 @@ class Player extends React.PureComponent {
       playerVars: {
         autoplay: 1,
         playsinline: 1,
-        origin: "https://adventure-thon.herokuapp.com/"
+        origin: "https://adventure-thon-test.herokuapp.com/"
       },
       events: {
         onReady: this.onPlayerReady,
