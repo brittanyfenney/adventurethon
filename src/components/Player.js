@@ -57,14 +57,15 @@ class Player extends React.PureComponent {
     this.player = new window.YT.Player(`youtube-player-${songId}`, {
       videoId: songId,
       playerVars: {
-        autoplay: 1,
-        playsinline: 1,
-        origin: "https://adventure-thon-test.herokuapp.com/"
+        'autoplay': 1,
+        'playsinline': 1,
+        'origin': "https://adventure-thon-test.herokuapp.com/"
       },
       events: {
         onReady: this.onPlayerReady,
       },
     });
+    console.log('loadvideo this =>',this.player)
   };
 
   onPlayerReady = (event) => {
@@ -111,6 +112,7 @@ class Player extends React.PureComponent {
   }
 
   render = () => {
+
     const { songId } = this.state;
     return (
       <div>
